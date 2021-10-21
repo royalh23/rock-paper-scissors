@@ -5,26 +5,32 @@ function computerPlay() {
 }
 
 // Play a round of game
-function playRound(playerSelection, computerSelection, playerWins, computerWins) {
+function playRound(playerSelection, computerSelection, playerWins, computerWins, counter) {
   if (playerSelection === computerSelection) {
-    console.log("No one wins. Move on.");
+    counter++;
+    return "No one wins. Move on.";
   } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
       playerWins = true;
+      counter++;
       return "You win! The computer chose Scissors, and Rock beats Scissors.";
   } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
       computerWins = true;
-      return "You lose! The computer chose Rock, and Rock beats Scissors.";
+      return "You lose! The computer chose Rock, and Rock beats Scissors";
   } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
       playerWins = true;
+      counter++;
       return "You win! The computer chose Rock, and Paper beats Rock.";
   } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
       computerWins = true;
+      counter++;
       return "You lose! The computer chose Paper, and Paper beats Rock.";
   } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
       playerWins = true;
+      counter++;
       return "You win! The computer chose Paper, and Scissors beats Paper.";
   } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
       computerWins = true;
+      counter++;
       return "You lose! The computer chose Scissors, and Scissors beats Paper.";
   } else {
       return "Please enter a valid object.";
@@ -39,7 +45,7 @@ function checkWinnerInEachRound(playerWins, computerWins, playerScore, computerS
   }
 }
 
-function checkLastWinner(playerScore, computerScore) {
+function checkAndAnnounceLastWinner(playerScore, computerScore) {
   if (playerScore > computerScore) {
     console.log("Congratulations! You defeated the computer.");
   } else if (playerScore < computerScore) {
@@ -58,21 +64,20 @@ function game() {
     const computerSelection = computerPlay();
     const playerSelectionOriginal = prompt('Please enter an object.').toLowerCase()
     const playerSelection = playerSelectionOriginal.charAt(0).toUpperCase() + playerSelectionOriginal.slice(1);
+    console.log(`Computer selection: ${computerSelection}`);
+    console.log(`playerSelection: ${playerSelection}`);
 
     // Set a boolean value for the player and computer in each round
     playerWins = false;
     computerWins = false;
-    console.log(playRound(playerSelection, computerSelection, playerWins, computerWins));
+    console.log(playRound(playerSelection, computerSelection, playerWins, computerWins, counter));
 
     // Add 1 to either player's or computer's score in each round
     checkWinnerInEachRound(playerWins, computerWins, playerScore, computerScore);
-
-    // Increment the counter 
-    counter++;
   }
 
   // Compare the scores of the player and computer, then announce the winner
-  checkLastWinner(playerScore, computerScore);
+  checkAndAnnounceLastWinner(playerScore, computerScore);
 }
 
 game();
