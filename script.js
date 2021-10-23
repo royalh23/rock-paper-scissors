@@ -75,6 +75,9 @@ function game() {
   
           // Add 1 to either player's or computer's score in each round
           checkWinnerInEachRound();
+
+          // Show the scores of the player and computer
+          console.log(`Player: ${playerScore}\nComputer: ${computerScore}`);
   
           // Increment the counter
           counter++;
