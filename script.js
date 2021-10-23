@@ -5,39 +5,31 @@ function computerPlay() {
 }
 
 // Play a round of game
-function playRound(playerSelection, computerSelection, playerWins, computerWins, counter) {
+function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    counter++;
     return "No one wins. Move on.";
   } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
       playerWins = true;
-      counter++;
       return "You win! The computer chose Scissors, and Rock beats Scissors.";
   } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
       computerWins = true;
       return "You lose! The computer chose Rock, and Rock beats Scissors";
   } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
       playerWins = true;
-      counter++;
       return "You win! The computer chose Rock, and Paper beats Rock.";
   } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
       computerWins = true;
-      counter++;
       return "You lose! The computer chose Paper, and Paper beats Rock.";
   } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
       playerWins = true;
-      counter++;
       return "You win! The computer chose Paper, and Scissors beats Paper.";
   } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
       computerWins = true;
-      counter++;
       return "You lose! The computer chose Scissors, and Scissors beats Paper.";
-  } else {
-      return "Please enter a valid object.";
   }
 }
 
-function checkWinnerInEachRound(playerWins, computerWins, playerScore, computerScore) {
+function checkWinnerInEachRound() {
   if (playerWins) {
     playerScore++;
   } else if (computerWins) {
@@ -45,7 +37,7 @@ function checkWinnerInEachRound(playerWins, computerWins, playerScore, computerS
   }
 }
 
-function checkAndAnnounceLastWinner(playerScore, computerScore) {
+function checkAndAnnounceLastWinner() {
   if (playerScore > computerScore) {
     console.log("Congratulations! You defeated the computer.");
   } else if (playerScore < computerScore) {
@@ -55,29 +47,49 @@ function checkAndAnnounceLastWinner(playerScore, computerScore) {
   }
 }
 
+// Set a boolean value for the player and computer in each round and their scores
+let playerWins = false;
+let computerWins = false;
+let playerScore = 0;
+let computerScore = 0;
+
 // The main function of the game
 function game() {
   let counter = 0;
-  let playerScore = 0;
-  let computerScore = 0;
+  let canceled = false;
   while (counter < 5) {
     const computerSelection = computerPlay();
-    const playerSelectionOriginal = prompt('Please enter an object.').toLowerCase()
-    const playerSelection = playerSelectionOriginal.charAt(0).toUpperCase() + playerSelectionOriginal.slice(1);
-    console.log(`Computer selection: ${computerSelection}`);
-    console.log(`playerSelection: ${playerSelection}`);
+    const playerSelectionOriginal = prompt('Please enter an object.');
+    
+    if (playerSelectionOriginal === null) {
+      console.log("You canceled.");
+      canceled = true;
+      break;
+    } else {
+        const playerSelection = playerSelectionOriginal.toLowerCase().charAt(0).toUpperCase() + playerSelectionOriginal.slice(1);
 
-    // Set a boolean value for the player and computer in each round
-    playerWins = false;
-    computerWins = false;
-    console.log(playRound(playerSelection, computerSelection, playerWins, computerWins, counter));
+        if ( !(playerSelection === 'Rock' || playerSelection === 'Scissors' || playerSelection === 'Paper') ) {
+          console.log("Please choose a valid object.");
+      } else {
+          console.log(playRound(playerSelection, computerSelection));
+  
+          // Add 1 to either player's or computer's score in each round
+          checkWinnerInEachRound();
+  
+          // Increment the counter
+          counter++;
 
-    // Add 1 to either player's or computer's score in each round
-    checkWinnerInEachRound(playerWins, computerWins, playerScore, computerScore);
+          // Reset the values
+          playerWins = false;
+          computerWins = false;
+      }
+    }
   }
 
   // Compare the scores of the player and computer, then announce the winner
-  checkAndAnnounceLastWinner(playerScore, computerScore);
+  if (canceled === false) {
+    checkAndAnnounceLastWinner();
+  }
 }
 
 game();
