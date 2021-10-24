@@ -66,9 +66,11 @@ function game() {
       canceled = true;
       break;
     } else {
-        const playerSelection = playerSelectionOriginal.toLowerCase().charAt(0).toUpperCase() + playerSelectionOriginal.slice(1);
+        const playerSelection = playerSelectionOriginal.toLowerCase().charAt(0).
+            toUpperCase() + playerSelectionOriginal.slice(1);
 
-        if ( !(playerSelection === 'Rock' || playerSelection === 'Scissors' || playerSelection === 'Paper') ) {
+        if ( !(playerSelection === 'Rock' || playerSelection === 'Scissors' || 
+            playerSelection === 'Paper') ) {
           console.log("Please choose a valid object.");
       } else {
           console.log(playRound(playerSelection, computerSelection));
