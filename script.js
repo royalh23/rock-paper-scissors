@@ -59,36 +59,24 @@ function game() {
   let canceled = false;
   while (counter < 5) {
     const computerSelection = computerPlay();
-    const playerSelectionOriginal = prompt('Please enter an object.');
+    const playerSelection = null;
+          
+    console.log(playRound(playerSelection, computerSelection));
+
+    // Add 1 to either player's or computer's score in each round
+    checkWinnerInEachRound();
+
+    // Show the scores of the player and computer
+    console.log(`Player: ${playerScore}\nComputer: ${computerScore}`);
+
+    // Increment the counter
+    counter++;
+
+    // Reset the values
+    playerWins = false;
+    computerWins = false;
+      
     
-    if (playerSelectionOriginal === null) {
-      console.log("You canceled.");
-      canceled = true;
-      break;
-    } else {
-        const playerSelection = playerSelectionOriginal.toLowerCase().charAt(0).
-            toUpperCase() + playerSelectionOriginal.slice(1);
-
-        if ( !(playerSelection === 'Rock' || playerSelection === 'Scissors' || 
-            playerSelection === 'Paper') ) {
-          console.log("Please choose a valid object.");
-      } else {
-          console.log(playRound(playerSelection, computerSelection));
-  
-          // Add 1 to either player's or computer's score in each round
-          checkWinnerInEachRound();
-
-          // Show the scores of the player and computer
-          console.log(`Player: ${playerScore}\nComputer: ${computerScore}`);
-  
-          // Increment the counter
-          counter++;
-
-          // Reset the values
-          playerWins = false;
-          computerWins = false;
-      }
-    }
   }
 
   // Compare the scores of the player and computer, then announce the winner
