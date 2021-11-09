@@ -38,6 +38,10 @@ function playRound(e) {
   // Update the scores
   checkWinnerInEachRound();
 
+  // Update the selections
+  pSelection.textContent = `Player's Selection: ${playerSelection}`;
+  cSelection.textContent = `Computer's Selection: ${computerSelection}`;
+
   playerWins = false;
   computerWins = false;
 
@@ -59,9 +63,18 @@ function checkWinnerInEachRound() {
 function checkAndAnnounceLastWinner() {
   if (playerScore === 5) {
     rdiv.textContent = "Congratulations! You defeated the computer.";
+    playAgain();
   } else if (computerScore === 5) {
-    rdiv.textContent = "You lost the game to the computer. Better luck next time!";
+    rdiv.textContent = "You lost the game to the computer. Better luck next time";
+    playAgain();
   }
+}
+
+function playAgain() {
+  const button = document.createElement('button');
+  button.textContent = "Play again.";
+  button.style.cssText = "display: block; margin: 30px auto";
+  body.appendChild(button);
 }
 
 // Set a boolean value for the player and computer in each round and their scores
@@ -70,9 +83,11 @@ let computerWins = false;
 let playerScore = 0;
 let computerScore = 0;
 
-// Set the result div and body
+// Set the result div, body and selections
 const rdiv = document.querySelector('#result');
-const body = document.querySelectorAll('body')
+const body = document.querySelector('body')
+const pSelection = document.querySelector('#pselection');
+const cSelection = document.querySelector('#cselection');
 
 // The main function of the game
 function game() {

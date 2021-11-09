@@ -3,11 +3,21 @@
   justify-content: space-between;
 }
 
+.selections {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scores, .selections {
+  font-size: 25px;
+  margin: 20px 0;
+}
+
 .buttons-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 75vh;
+  height: 65vh;
 }
 
 #result {
