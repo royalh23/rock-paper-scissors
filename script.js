@@ -74,7 +74,7 @@ function checkAndAnnounceLastWinner() {
 
 function addPlayAgain() {
   button.setAttribute('id', 'plagain');
-  button.textContent = "Play again.";
+  button.textContent = "Play again";
   button.style.cssText = "display: block; margin: 30px auto";
   body.appendChild(button);
   button.addEventListener('click', playAgain);
