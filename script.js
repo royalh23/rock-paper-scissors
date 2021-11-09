@@ -33,7 +33,6 @@ function playRound(e) {
   }
 
   // Display the result
-  const rdiv = document.querySelector('#result');
   rdiv.textContent = result;
 
   // Update the scores
@@ -41,6 +40,8 @@ function playRound(e) {
 
   playerWins = false;
   computerWins = false;
+
+  checkAndAnnounceLastWinner();
 }
 
 function checkWinnerInEachRound() {
@@ -56,12 +57,10 @@ function checkWinnerInEachRound() {
 }
 
 function checkAndAnnounceLastWinner() {
-  if (playerScore > computerScore) {
+  if (playerScore === 5) {
     rdiv.textContent = "Congratulations! You defeated the computer.";
-  } else if (playerScore < computerScore) {
+  } else if (computerScore === 5) {
     rdiv.textContent = "You lost the game to the computer. Better luck next time!";
-  } else {
-    rdiv.textContent = "Tie!";
   }
 }
 
@@ -70,6 +69,10 @@ let playerWins = false;
 let computerWins = false;
 let playerScore = 0;
 let computerScore = 0;
+
+// Set the result div and body
+const rdiv = document.querySelector('#result');
+const body = document.querySelectorAll('body')
 
 // The main function of the game
 function game() {
