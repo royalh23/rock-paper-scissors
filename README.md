@@ -1,1 +1,1 @@
-Rock paper scissors project
+This is a Rock paper scissors project. You can check the project on this website: https://royalh23.github.io/rock-paper-scissors/
