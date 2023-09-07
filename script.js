@@ -8,7 +8,7 @@ function getComputerChoice() {
   return gameItems[randomIndexNumber];
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection, playerScore, computerScore) {
   // Make player's selection case-insensitive
   playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1);
 
@@ -16,20 +16,26 @@ function playRound(playerSelection, computerSelection) {
 
   // Play a round
   if (playerSelection === "Rock" && computerSelection === "Paper") {  
+    computerScore++;
     roundResult = "You lose! The computer chose Paper, and Paper beats Rock.";
   } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+    playerScore++;
     roundResult = "You win! The computer chose Scissors, and Rock beats Scissors.";
   } else if (playerSelection === "Rock" && computerSelection === "Rock") {
     roundResult = "No one wins! The computer chose Rock, and Rock vs Rock is a tie.";
   } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+    playerScore++;
     roundResult = "You win! The computer chose Rock, and Paper beats Rock.";
   } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+    computerScore++;
     roundResult = "You lose! The computer chose Scissors, and Scissors beats Paper.";
   } else if (playerSelection === "Paper" && computerSelection === "Paper") {
     roundResult = "No one wins! The computer chose Paper, and Paper vs Paper is a tie.";
   } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+    computerScore++;
     roundResult = "You lose! The computer chose Rock, and Rock beats Scissors.";
   } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+    playerScore++;
     roundResult = "You win! The computer chose Paper, and Scissors beats Paper.";
   } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
     roundResult = "No one wins! The computer chose Scissors, and Scissors vs Scissors is a tie.";
@@ -51,7 +57,8 @@ function game() {
     else userPrompt = "What's your choice this time?";
     let playerSelection = prompt(userPrompt);
 
-    console.log(playRound(playerSelection, computerSelection));
+    // Print the result of the round
+    console.log(playRound(playerSelection, computerSelection, playerScore, computerScore));
   }
 }
 
