@@ -16,23 +16,23 @@ function playRound(playerSelection, computerSelection) {
 
   // Play a round
   if (playerSelection === "Rock" && computerSelection === "Paper") {  
-    gameResult = "You lose! Paper beats Rock.";
+    gameResult = "You lose! The computer chose Paper, and Paper beats Rock.";
   } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-    gameResult = "You win! Rock beats Scissors.";
+    gameResult = "You win! The computer chose Scissors, and Rock beats Scissors.";
   } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-    gameResult = "No one wins! Rock vs Rock is a tie.";
+    gameResult = "No one wins! The computer chose Rock, and Rock vs Rock is a tie.";
   } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-    gameResult = "You win! Paper beats Rock.";
+    gameResult = "You win! The computer chose Rock, and Paper beats Rock.";
   } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-    gameResult = "You lose! Scissors beats Paper.";
+    gameResult = "You lose! The computer chose Scissors, and Scissors beats Paper.";
   } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-    gameResult = "No one wins! Paper vs Paper is a tie.";
+    gameResult = "No one wins! The computer chose Paper, and Paper vs Paper is a tie.";
   } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-    gameResult = "You lose! Rock beats Scissors.";
+    gameResult = "You lose! The computer chose Rock, and Rock beats Scissors.";
   } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-    gameResult = "You win! Scissors beats Paper.";
+    gameResult = "You win! The computer chose Paper, and Scissors beats Paper.";
   } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
-    gameResult = "No one wins! Scissors vs Scissors is a tie.";
+    gameResult = "No one wins! The computer chose Scissors, and Scissors vs Scissors is a tie.";
   }
 
   return gameResult;
@@ -52,3 +52,5 @@ function game() {
     console.log(playRound(playerSelection, computerSelection));
   }
 }
+
+game();
