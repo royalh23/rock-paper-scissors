@@ -8,7 +8,7 @@ function getComputerChoice() {
   return gameItems[randomIndexNumber];
 }
 
-function playRound(playerSelection, computerSelection, playerScore, computerScore) {
+function playRound(playerSelection, computerSelection) {
   // Make player's selection case-insensitive
   playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1);
 
@@ -44,11 +44,12 @@ function playRound(playerSelection, computerSelection, playerScore, computerScor
   return roundResult;
 }
 
-function game() {
-  // Initialize scores of the player and computer
-  let playerScore = 0;
-  let computerScore = 0;
 
+// Initialize scores of the player and computer
+let playerScore = 0;
+let computerScore = 0;
+
+function game() {
   for (let round = 1; round < 6; round++) {
     // Initialize required variables
     let computerSelection = getComputerChoice();
@@ -58,7 +59,9 @@ function game() {
     let playerSelection = prompt(userPrompt);
 
     // Print the result of the round
-    console.log(playRound(playerSelection, computerSelection, playerScore, computerScore));
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(`Player: ${playerScore}`);
+    console.log(`Computer: ${computerScore}`);
   }
 }
 
