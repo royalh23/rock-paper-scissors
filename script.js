@@ -39,10 +39,12 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  // Initialize scores of the player and computer
+  let playerScore = 0;
+  let computerScore = 0;
+
   for (let round = 1; round < 6; round++) {
     // Initialize required variables
-    let playerScore = 0;
-    let computerScore = 0;
     let computerSelection = getComputerChoice();
     let userPrompt;
     if (round === 1) userPrompt = "Welcome to the Rock Paper Scissors game! Hope you enjoy it. Make your choice now:";
