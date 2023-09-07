@@ -44,11 +44,6 @@ function playRound(playerSelection, computerSelection) {
   return roundResult;
 }
 
-
-// Initialize scores of the player and computer
-let playerScore = 0;
-let computerScore = 0;
-
 function game() {
   for (let round = 1; round < 6; round++) {
     // Initialize required variables
@@ -73,5 +68,9 @@ function game() {
     console.log("No one won! It's a draw.");
   }
 }
+
+// Initialize scores of the player and computer
+let playerScore = 0;
+let computerScore = 0;
 
 game();
