@@ -44,6 +44,16 @@ function playRound(playerSelection, computerSelection) {
   return roundResult;
 }
 
+function announceGameResult() {
+  if (playerScore > computerScore) {
+    console.log("Congratulations! You won the game.");
+  } else if (playerScore < computerScore) {
+    console.log("Oops :/ You lost the game.");
+  } else {
+    console.log("No one won! It's a draw.");
+  }
+}
+
 function game() {
   for (let round = 1; round < 6; round++) {
     // Initialize required variables
@@ -59,14 +69,7 @@ function game() {
     console.log(`Computer: ${computerScore}`);
   }
 
-  // Declare game result
-  if (playerScore > computerScore) {
-    console.log("Congratulations! You won the game.");
-  } else if (playerScore < computerScore) {
-    console.log("Oops :/ You lost the game.");
-  } else {
-    console.log("No one won! It's a draw.");
-  }
+  announceGameResult();
 }
 
 // Initialize scores of the player and computer
