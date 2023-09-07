@@ -12,30 +12,30 @@ function playRound(playerSelection, computerSelection) {
   // Make player's selection case-insensitive
   playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1);
 
-  let gameResult;
+  let roundResult;
 
   // Play a round
   if (playerSelection === "Rock" && computerSelection === "Paper") {  
-    gameResult = "You lose! The computer chose Paper, and Paper beats Rock.";
+    roundResult = "You lose! The computer chose Paper, and Paper beats Rock.";
   } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-    gameResult = "You win! The computer chose Scissors, and Rock beats Scissors.";
+    roundResult = "You win! The computer chose Scissors, and Rock beats Scissors.";
   } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-    gameResult = "No one wins! The computer chose Rock, and Rock vs Rock is a tie.";
+    roundResult = "No one wins! The computer chose Rock, and Rock vs Rock is a tie.";
   } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-    gameResult = "You win! The computer chose Rock, and Paper beats Rock.";
+    roundResult = "You win! The computer chose Rock, and Paper beats Rock.";
   } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-    gameResult = "You lose! The computer chose Scissors, and Scissors beats Paper.";
+    roundResult = "You lose! The computer chose Scissors, and Scissors beats Paper.";
   } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-    gameResult = "No one wins! The computer chose Paper, and Paper vs Paper is a tie.";
+    roundResult = "No one wins! The computer chose Paper, and Paper vs Paper is a tie.";
   } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-    gameResult = "You lose! The computer chose Rock, and Rock beats Scissors.";
+    roundResult = "You lose! The computer chose Rock, and Rock beats Scissors.";
   } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-    gameResult = "You win! The computer chose Paper, and Scissors beats Paper.";
+    roundResult = "You win! The computer chose Paper, and Scissors beats Paper.";
   } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
-    gameResult = "No one wins! The computer chose Scissors, and Scissors vs Scissors is a tie.";
+    roundResult = "No one wins! The computer chose Scissors, and Scissors vs Scissors is a tie.";
   }
 
-  return gameResult;
+  return roundResult;
 }
 
 function game() {
