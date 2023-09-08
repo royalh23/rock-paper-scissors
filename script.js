@@ -1,10 +1,9 @@
 function getComputerChoice() {
   const gameItems = ["Rock", "Paper", "Scissors"];
 
-  // Get a random number between 0, 1, and 2
+  // Get a random number between 0, 1, and 2 to use as an index for gameItems
   let randomIndexNumber = Math.floor((Math.random() * gameItems.length));
 
-  // Then use one of this random numbers as an index to get a random array value
   return gameItems[randomIndexNumber];
 }
 
