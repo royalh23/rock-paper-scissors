@@ -72,7 +72,8 @@ function game() {
   announceGameResult();
 }
 
-// Initialize scores of the player and computer
+// Initialize scores of the player and computer globally so that they are accessible
+// from other functions
 let playerScore = 0;
 let computerScore = 0;
 
