@@ -59,7 +59,8 @@ function game() {
     // Initialize required variables
     let computerSelection = getComputerChoice();
     let userPrompt;
-    if (round === 1) userPrompt = "Welcome to the Rock Paper Scissors game! Hope you enjoy it. Make your choice now:";
+    if (round === 1) userPrompt = "Welcome to the Rock Paper Scissors game! Hope" + 
+                                  "you enjoy it. Make your choice now:";
     else userPrompt = "What's your choice this time?";
     let playerSelection = prompt(userPrompt);
 
