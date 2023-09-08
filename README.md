@@ -1,0 +1,1 @@
+This project demonstrates my core JavaScript skills by creating a Rock Paper Scissors game. This game utilizes 4 main functions to accomplish the game logic, one of which is a helper function.
