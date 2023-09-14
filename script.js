@@ -67,7 +67,7 @@ function playGame(event) {
   updateEndResult();
 }
 
-// Initialize scores and the result
+// Initialize scores, the result and flag
 let playerScore = 0;
 let computerScore = 0;
 let roundResult;
