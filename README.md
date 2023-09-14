@@ -1,1 +1,4 @@
-This project demonstrates my core JavaScript skills by creating a Rock Paper Scissors game. This game utilizes 4 main functions to accomplish the game logic, one of which is a helper function.
+This project demonstrates my core JavaScript skills by creating a Rock Paper Scissors game. I have implemented various JS features such as:
+- DOM manipulation;
+- Event handling;
+- Utilizing functions for cleaner and more readable code.
