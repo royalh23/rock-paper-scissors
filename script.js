@@ -54,6 +54,17 @@ function updateEndResult() {
   }
 }
 
+function playAgain() {
+  playerScore = 0;
+  computerScore = 0;
+  playerScoreResult.textContent = "Player Score: 0";
+  computerScoreResult.textContent = "Computer Score: 0";
+  result.textContent = "Round Result: ";
+  gameOver = false;
+  buttons.forEach(button => button.addEventListener("click", playGame));
+  document.body.removeChild(replayBtn);
+}
+
 function playGame(event) {
   let playerSelection = event.target.textContent;
   let computerSelection = getComputerChoice();
@@ -65,6 +76,15 @@ function playGame(event) {
   updateScores();
 
   updateEndResult();
+
+  if (gameOver) {
+    buttons.forEach(button => button.removeEventListener("click", playGame));
+
+    const replayBtn = document.createElement("button");
+    replayBtn.textContent = "Start again"
+    document.body.appendChild(replayBtn);
+    replayBtn.addEventListener("click", playAgain);
+  }
 }
 
 // Initialize scores, the result and flag
