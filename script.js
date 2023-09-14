@@ -50,10 +50,5 @@ function playRound(event) {
 let playerScore = 0;
 let computerScore = 0;
 
-const btnRock = document.querySelector("#rock");
-const btnPaper = document.querySelector("#paper");
-const btnScissors = document.querySelector("#scissors");
-
-btnRock.addEventListener("click", playRound);
-btnPaper.addEventListener("click", playRound);
-btnScissors.addEventListener("click", playRound);
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => button.addEventListener("click", playRound));
