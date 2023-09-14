@@ -53,28 +53,28 @@ function announceGameResult() {
   }
 }
 
-function game() {
-  for (let round = 1; round < 6; round++) {
-    // Initialize required variables
-    let computerSelection = getComputerChoice();
-    let userPrompt;
-    if (round === 1) userPrompt = "Welcome to the Rock Paper Scissors game! Hope" + 
-                                  " you enjoy it. Make your choice now:";
-    else userPrompt = "What's your choice this time?";
-    let playerSelection = prompt(userPrompt);
+// function game() {
+//   for (let round = 1; round < 6; round++) {
+//     // Initialize required variables
+//     let computerSelection = getComputerChoice();
+//     let userPrompt;
+//     if (round === 1) userPrompt = "Welcome to the Rock Paper Scissors game! Hope" + 
+//                                   " you enjoy it. Make your choice now:";
+//     else userPrompt = "What's your choice this time?";
+//     let playerSelection = prompt(userPrompt);
 
-    // Print the result of the round
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(`Player: ${playerScore}`);
-    console.log(`Computer: ${computerScore}`);
-  }
+//     // Print the result of the round
+//     console.log(playRound(playerSelection, computerSelection));
+//     console.log(`Player: ${playerScore}`);
+//     console.log(`Computer: ${computerScore}`);
+//   }
 
-  announceGameResult();
-}
+//   announceGameResult();
+// }
 
 // Initialize scores of the player and computer globally so that they are accessible
 // from other functions
 let playerScore = 0;
 let computerScore = 0;
 
-game();
+// game();
