@@ -33,10 +33,11 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
     roundResult = "No one wins! The computer chose Scissors, and Scissors vs Scissors is a tie.";
   }
+  roundNumber++;
 }
 
 function updateResult(roundResult) {
-  result.textContent = `Round Result: ${roundResult}`;
+  result.textContent = `Round ${roundNumber}: ${roundResult}`;
 }
 
 function updateScores() {
@@ -57,6 +58,7 @@ function updateEndResult() {
 function restart() {
   playerScore = 0;
   computerScore = 0;
+  roundNumber = 0;
   playerScoreResult.textContent = "Player Score: 0";
   computerScoreResult.textContent = "Computer Score: 0";
   result.textContent = "";
@@ -96,6 +98,7 @@ function playGame(event) {
 // Initialize scores, the result and flag
 let playerScore = 0;
 let computerScore = 0;
+let roundNumber = 0;
 let roundResult;
 let gameOver = false;
 
