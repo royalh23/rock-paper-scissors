@@ -7,9 +7,12 @@ function getComputerChoice() {
   return gameItems[randomIndexNumber];
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(event) {
+  let playerSelection = event.target.textContent;
+  let computerSelection = getComputerChoice();
+
   // Make player's selection case-insensitive
-  playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1);
+  // playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1);
 
   let roundResult;
 
