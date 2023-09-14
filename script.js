@@ -7,7 +7,7 @@ function getComputerChoice() {
   return gameItems[randomIndexNumber];
 }
 
-function playRound(event) {
+function getResult(event) {
   let playerSelection = event.target.textContent;
   let computerSelection = getComputerChoice();
 
@@ -51,4 +51,4 @@ let playerScore = 0;
 let computerScore = 0;
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach(button => button.addEventListener("click", playRound));
+buttons.forEach(button => button.addEventListener("click", getResult));
