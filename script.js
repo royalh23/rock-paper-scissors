@@ -54,7 +54,7 @@ function updateEndResult() {
   }
 }
 
-function playAgain() {
+function restart() {
   playerScore = 0;
   computerScore = 0;
   playerScoreResult.textContent = "Player Score: 0";
@@ -63,6 +63,19 @@ function playAgain() {
   gameOver = false;
   buttons.forEach(button => button.addEventListener("click", playGame));
   this.parentNode.removeChild(this);
+}
+
+function addReplayButton() {
+  document.body.appendChild(replayBtn);
+  replayBtn.addEventListener("click", restart);
+}
+
+function playAgain() {
+  if (gameOver) {
+    buttons.forEach(button => button.removeEventListener("click", playGame));
+
+    addReplayButton();
+  }
 }
 
 function playGame(event) {
@@ -77,12 +90,7 @@ function playGame(event) {
 
   updateEndResult();
 
-  if (gameOver) {
-    buttons.forEach(button => button.removeEventListener("click", playGame));
-
-    document.body.appendChild(replayBtn);
-    replayBtn.addEventListener("click", playAgain);
-  }
+  playAgain();
 }
 
 // Initialize scores, the result and flag
