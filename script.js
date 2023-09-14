@@ -80,8 +80,6 @@ function playGame(event) {
   if (gameOver) {
     buttons.forEach(button => button.removeEventListener("click", playGame));
 
-    const replayBtn = document.createElement("button");
-    replayBtn.textContent = "Start again"
     document.body.appendChild(replayBtn);
     replayBtn.addEventListener("click", playAgain);
   }
@@ -98,5 +96,9 @@ const buttons = document.querySelectorAll("button");
 const result = document.querySelector("#result");
 const playerScoreResult = document.querySelector("#player-score");
 const computerScoreResult = document.querySelector("#comp-score");
+
+// Create replay button in advance so that it can be added later
+const replayBtn = document.createElement("button");
+replayBtn.textContent = "Start again"
 
 buttons.forEach(button => button.addEventListener("click", playGame));
