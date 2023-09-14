@@ -59,7 +59,7 @@ function restart() {
   computerScore = 0;
   playerScoreResult.textContent = "Player Score: 0";
   computerScoreResult.textContent = "Computer Score: 0";
-  result.textContent = "Round Result: ";
+  result.textContent = "";
   gameOver = false;
   buttons.forEach(button => button.addEventListener("click", playGame));
   this.parentNode.removeChild(this);
