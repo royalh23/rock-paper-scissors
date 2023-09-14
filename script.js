@@ -66,7 +66,7 @@ function restart() {
 }
 
 function addReplayButton() {
-  document.body.appendChild(replayBtn);
+  restartDiv.appendChild(replayBtn);
   replayBtn.addEventListener("click", restart);
 }
 
@@ -104,6 +104,7 @@ const buttons = document.querySelectorAll("button");
 const result = document.querySelector("#result");
 const playerScoreResult = document.querySelector("#player-score");
 const computerScoreResult = document.querySelector("#comp-score");
+const restartDiv = document.querySelector("#restart");
 
 // Create replay button in advance so that it can be added later
 const replayBtn = document.createElement("button");
