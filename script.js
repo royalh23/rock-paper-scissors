@@ -43,7 +43,8 @@ function getResult(event) {
     roundResult = "No one wins! The computer chose Scissors, and Scissors vs Scissors is a tie.";
   }
 
-  return roundResult;
+  // Set the result div
+  result.textContent = `Result: ${roundResult}`;
 }
 
 
@@ -51,4 +52,6 @@ let playerScore = 0;
 let computerScore = 0;
 
 const buttons = document.querySelectorAll("button");
+const result = document.querySelector("#result");
+
 buttons.forEach(button => button.addEventListener("click", getResult));
