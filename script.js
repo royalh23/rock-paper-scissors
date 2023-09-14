@@ -47,8 +47,10 @@ function updateScores() {
 function updateEndResult() {
   if (playerScore === 5) {
     result.textContent = "Game Result: You win! Congratulations :)";
+    gameOver = true;
   } else if (computerScore === 5) {
     result.textContent = "Game Result: Computer wins! Good luck next time :/";
+    gameOver = true;
   }
 }
 
@@ -69,6 +71,7 @@ function playGame(event) {
 let playerScore = 0;
 let computerScore = 0;
 let roundResult;
+let gameOver = false;
 
 // Select HTML elements
 const buttons = document.querySelectorAll("button");
