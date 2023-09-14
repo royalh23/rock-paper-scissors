@@ -60,6 +60,7 @@ let playerScore = 0;
 let computerScore = 0;
 let roundResult;
 
+// Select HTML elements
 const buttons = document.querySelectorAll("button");
 const result = document.querySelector("#result");
 const playerScoreResult = document.querySelector("#player-score");
