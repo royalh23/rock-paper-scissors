@@ -43,16 +43,6 @@ function playRound(playerSelection, computerSelection) {
   return roundResult;
 }
 
-function announceGameResult() {
-  if (playerScore > computerScore) {
-    console.log("Congratulations! You won the game.");
-  } else if (playerScore < computerScore) {
-    console.log("Oops :/ You lost the game.");
-  } else {
-    console.log("No one won! It's a draw.");
-  }
-}
-
 // Initialize scores of the player and computer globally so that they are accessible
 // from other functions
 let playerScore = 0;
