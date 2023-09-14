@@ -62,7 +62,7 @@ function playAgain() {
   result.textContent = "Round Result: ";
   gameOver = false;
   buttons.forEach(button => button.addEventListener("click", playGame));
-  document.body.removeChild(replayBtn);
+  this.parentNode.removeChild(this);
 }
 
 function playGame(event) {
