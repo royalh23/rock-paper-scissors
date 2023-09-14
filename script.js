@@ -7,16 +7,7 @@ function getComputerChoice() {
   return gameItems[randomIndexNumber];
 }
 
-function getResult(event) {
-  let playerSelection = event.target.textContent;
-  let computerSelection = getComputerChoice();
-
-  // Make player's selection case-insensitive
-  // playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1);
-
-  let roundResult;
-
-  // Play a round
+function playRound(playerSelection, computerSelection) {
   if (playerSelection === "Rock" && computerSelection === "Paper") {  
     computerScore++;
     roundResult = "You lose! The computer chose Paper, and Paper beats Rock.";
@@ -42,17 +33,32 @@ function getResult(event) {
   } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
     roundResult = "No one wins! The computer chose Scissors, and Scissors vs Scissors is a tie.";
   }
+}
 
-  // Set the result div
+function updateResult(roundResult) {
   result.textContent = `Result: ${roundResult}`;
+}
 
+function updateScores() {
   playerScoreResult.textContent = `Player Score: ${playerScore}`;
   computerScoreResult.textContent = `Computer Score: ${computerScore}`;
+}
+
+function getResult(event) {
+  let playerSelection = event.target.textContent;
+  let computerSelection = getComputerChoice();
+
+  playRound(playerSelection, computerSelection);
+
+  updateResult(roundResult);
+
+  updateScores();
 }
 
 
 let playerScore = 0;
 let computerScore = 0;
+let roundResult;
 
 const buttons = document.querySelectorAll("button");
 const result = document.querySelector("#result");
