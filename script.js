@@ -45,6 +45,9 @@ function getResult(event) {
 
   // Set the result div
   result.textContent = `Result: ${roundResult}`;
+
+  playerScoreResult.textContent = `Player Score: ${playerScore}`;
+  computerScoreResult.textContent = `Computer Score: ${computerScore}`;
 }
 
 
@@ -54,6 +57,6 @@ let computerScore = 0;
 const buttons = document.querySelectorAll("button");
 const result = document.querySelector("#result");
 const playerScoreResult = document.querySelector("#player-score");
-const computerScoreResult = document.querySelector("#computer-score");
+const computerScoreResult = document.querySelector("#comp-score");
 
 buttons.forEach(button => button.addEventListener("click", getResult));
