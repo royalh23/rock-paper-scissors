@@ -36,12 +36,20 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateResult(roundResult) {
-  result.textContent = `Result: ${roundResult}`;
+  result.textContent = `Round Result: ${roundResult}`;
 }
 
 function updateScores() {
   playerScoreResult.textContent = `Player Score: ${playerScore}`;
   computerScoreResult.textContent = `Computer Score: ${computerScore}`;
+}
+
+function updateEndResult() {
+  if (playerScore === 5) {
+    result.textContent = "Game Result: You win! Congratulations :)";
+  } else if (computerScore === 5) {
+    result.textContent = "Game Result: Computer wins! Good luck next time :/";
+  }
 }
 
 function playGame(event) {
@@ -53,6 +61,8 @@ function playGame(event) {
   updateResult(roundResult);
 
   updateScores();
+
+  updateEndResult();
 }
 
 // Initialize scores and the result
